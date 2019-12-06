@@ -13,9 +13,9 @@ public enum Property {
     /// 字段信息
     public struct Field {
         /// 字段名
-        let label: String
+        public let label: String
         /// 字段类型
-        let valueType: Any.Type
+        public let valueType: Any.Type
         /// 字段
 //        let valueFields: [Field]
         
@@ -49,5 +49,12 @@ public enum Property {
 extension Property.Field: CustomStringConvertible {
     public var description: String {
         return "{label: \(label), type: \(valueType)}"
+    }
+}
+
+
+extension Property.Decodable {
+    public static func decodeProperties() throws -> [Property.Field] {
+        try Property.decode(self)
     }
 }
