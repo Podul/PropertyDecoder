@@ -31,8 +31,8 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'PropertyDecoder/Classes/**/*'
-  
+  s.source_files = 'PropertyDecoder/Source/**/*'
+
   # s.resource_bundles = {
   #   'PropertyDecoder' => ['PropertyDecoder/Assets/*.png']
   # }
