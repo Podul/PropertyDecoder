@@ -8,6 +8,7 @@
 import Foundation
 
 
+/// From `Vapor` [Core/CodableReflection/CodableReflection.swift](https://github.com/vapor/core/blob/master/Sources/Core/CodableReflection/ReflectionDecoders.swift)
 struct _Decoder {
     
     var codingPath: [CodingKey]
@@ -16,7 +17,6 @@ struct _Decoder {
     init(codingPath: [CodingKey] = []) {
         self.codingPath = codingPath
     }
-    
 }
 
 extension _Decoder: Decoder {
@@ -36,7 +36,7 @@ extension _Decoder: Decoder {
 }
 
 // MARK: - SingleValueDecodingContainer
-struct _SingleValueDecodingContainer: SingleValueDecodingContainer {
+fileprivate struct _SingleValueDecodingContainer: SingleValueDecodingContainer {
     var codingPath: [CodingKey]
     
     func decodeNil() -> Bool { true }
@@ -47,7 +47,7 @@ struct _SingleValueDecodingContainer: SingleValueDecodingContainer {
 }
 
 // MARK: - _UnkeyedDecodingContainer
-struct _UnkeyedDecodingContainer: UnkeyedDecodingContainer {
+fileprivate struct _UnkeyedDecodingContainer: UnkeyedDecodingContainer {
     var codingPath: [CodingKey]
     
     var count: Int?
@@ -86,7 +86,7 @@ struct _UnkeyedDecodingContainer: UnkeyedDecodingContainer {
 
 
 // MARK: - _KeyedDecodingContainer
-struct _KeyedDecodingContainer<K>: KeyedDecodingContainerProtocol where K: CodingKey {
+fileprivate struct _KeyedDecodingContainer<K>: KeyedDecodingContainerProtocol where K: CodingKey {
     typealias Key = K
 
     var codingPath: [CodingKey]
@@ -127,7 +127,7 @@ struct _KeyedDecodingContainer<K>: KeyedDecodingContainerProtocol where K: Codin
 
 
 // MARK: - extension Decodable
-extension Decodable {
+fileprivate extension Decodable {
     static func asAnyDecodable() throws -> AnyDecodable.Type {
         guard let asable = Self.self as? AnyDecodable.Type else {
             throw _DecoderError(message: "not support type \(Self.self)")
@@ -138,7 +138,7 @@ extension Decodable {
 
 
 // MARK: - _DecoderError
-struct _DecoderError: Error {
+fileprivate struct _DecoderError: Error {
     let message: String
     let file: String
     let line: Int

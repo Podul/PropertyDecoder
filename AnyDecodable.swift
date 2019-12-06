@@ -12,11 +12,6 @@ protocol AnyDecodable: Decodable {
     static func anyValue() -> Any
 }
 
-extension String: AnyDecodable {
-    static func anyValue() -> Any { "0" }
-}
-
-
 
 // MARK: - Number Value
 protocol NumberDecodable: AnyDecodable {}
@@ -25,15 +20,30 @@ extension NumberDecodable {
 }
 
 extension Int: NumberDecodable {}
+extension Int8: NumberDecodable {}
+extension Int16: NumberDecodable {}
+extension Int32: NumberDecodable {}
+extension Int64: NumberDecodable {}
+
+extension UInt: NumberDecodable {}
 extension UInt8: NumberDecodable {}
+extension UInt16: NumberDecodable {}
+extension UInt32: NumberDecodable {}
+extension UInt64: NumberDecodable {}
+
+extension Float: NumberDecodable {}
+extension Double: NumberDecodable {}
+
+
+// MARK: - Other Value
+extension String: AnyDecodable {
+    static func anyValue() -> Any { "0" }
+}
 
 extension Data: AnyDecodable {
-    static func anyValue() -> Any {
-        Data()
-    }
+    static func anyValue() -> Any { Data() }
 }
 
 extension Bool: AnyDecodable {
     static func anyValue() -> Any { false }
 }
-

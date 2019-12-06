@@ -7,18 +7,23 @@
 //
 
 import UIKit
+import PropertyDecoder
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let list = try! Property.decode(Test.self)
+        _ = list.map{print($0)}
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
 
+struct Test: Decodable {
+    let a: String
+    let b: Int
+    let c: Int?
+    let d: String?
+    let f: Data
+}
