@@ -26,4 +26,12 @@ struct Test: Decodable {
     let c: Int?
     let d: String?
     let f: Data
+    let arr: [String]
+    let dict: [String: SubTest]
+    let test: SubTest
+}
+
+
+struct SubTest: Decodable {
+    let sub: String?
 }

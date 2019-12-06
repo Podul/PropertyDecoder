@@ -6,9 +6,13 @@
 //
 
 import Foundation
-
-
-protocol AnyDecodable: Decodable {
+/// ```
+/// AnyDecodable now supports
+/// Bool, String, Data, Array, Dictionary, Date
+/// Double, Float,
+/// Int, Int8, Int16, Int32, Int64, UInt, UInt8, UInt16, UInt32, UInt64
+/// ```
+protocol AnyDecodable where Self: Property.Decodable {
     static func anyValue() -> Any
 }
 
@@ -46,4 +50,16 @@ extension Data: AnyDecodable {
 
 extension Bool: AnyDecodable {
     static func anyValue() -> Any { false }
+}
+
+extension Array: AnyDecodable where Element: AnyDecodable {
+    static func anyValue() -> Any { [] }
+}
+
+extension Dictionary: AnyDecodable where Key: AnyDecodable, Value: AnyDecodable {
+    static func anyValue() -> Any { [:] }
+}
+
+extension Date: AnyDecodable {
+    static func anyValue() -> Any { Date() }
 }
