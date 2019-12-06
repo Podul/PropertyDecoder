@@ -7,59 +7,68 @@
 
 import Foundation
 /// ```
-/// AnyDecodable now supports
+/// _AnyDecodable now supports
 /// Bool, String, Data, Array, Dictionary, Date
 /// Double, Float,
 /// Int, Int8, Int16, Int32, Int64, UInt, UInt8, UInt16, UInt32, UInt64
 /// ```
-protocol AnyDecodable where Self: Property.Decodable {
-    static func anyValue() -> Any
+
+
+// MARK: - 对外
+public protocol AnyDecodable where Self: Property.Decodable {
+    static func defaultValue() -> Self
 }
 
+
+
+// MARK: - 对内
+protocol _AnyDecodable where Self: Property.Decodable {
+    static func defaultValue() -> Any
+}
 
 // MARK: - Number Value
-protocol NumberDecodable: AnyDecodable {}
-extension NumberDecodable {
-    static func anyValue() -> Any { 0 }
+fileprivate protocol _NumberDecodable: _AnyDecodable {}
+extension _NumberDecodable {
+    static func defaultValue() -> Any { 0 }
 }
 
-extension Int: NumberDecodable {}
-extension Int8: NumberDecodable {}
-extension Int16: NumberDecodable {}
-extension Int32: NumberDecodable {}
-extension Int64: NumberDecodable {}
+extension Int: _NumberDecodable {}
+extension Int8: _NumberDecodable {}
+extension Int16: _NumberDecodable {}
+extension Int32: _NumberDecodable {}
+extension Int64: _NumberDecodable {}
 
-extension UInt: NumberDecodable {}
-extension UInt8: NumberDecodable {}
-extension UInt16: NumberDecodable {}
-extension UInt32: NumberDecodable {}
-extension UInt64: NumberDecodable {}
+extension UInt: _NumberDecodable {}
+extension UInt8: _NumberDecodable {}
+extension UInt16: _NumberDecodable {}
+extension UInt32: _NumberDecodable {}
+extension UInt64: _NumberDecodable {}
 
-extension Float: NumberDecodable {}
-extension Double: NumberDecodable {}
+extension Float: _NumberDecodable {}
+extension Double: _NumberDecodable {}
 
 
 // MARK: - Other Value
-extension String: AnyDecodable {
-    static func anyValue() -> Any { "0" }
+extension String: _AnyDecodable {
+    static func defaultValue() -> Any { "0" }
 }
 
-extension Data: AnyDecodable {
-    static func anyValue() -> Any { Data() }
+extension Data: _AnyDecodable {
+    static func defaultValue() -> Any { Data() }
 }
 
-extension Bool: AnyDecodable {
-    static func anyValue() -> Any { false }
+extension Bool: _AnyDecodable {
+    static func defaultValue() -> Any { false }
 }
 
-extension Array: AnyDecodable where Element: AnyDecodable {
-    static func anyValue() -> Any { [] }
+extension Array: _AnyDecodable where Element: _AnyDecodable {
+    static func defaultValue() -> Any { [] }
 }
 
-extension Dictionary: AnyDecodable where Key: AnyDecodable, Value: AnyDecodable {
-    static func anyValue() -> Any { [:] }
+extension Dictionary: _AnyDecodable where Key: _AnyDecodable, Value: _AnyDecodable {
+    static func defaultValue() -> Any { [:] }
 }
 
-extension Date: AnyDecodable {
-    static func anyValue() -> Any { Date() }
+extension Date: _AnyDecodable {
+    static func defaultValue() -> Any { Date() }
 }
