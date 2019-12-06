@@ -111,7 +111,11 @@ fileprivate struct _KeyedDecodingContainer<K>: KeyedDecodingContainerProtocol wh
         guard let result = try? type._defaultValue() as? T else {
             return try T(from: superDecoder(forKey: key))
         }
-        return result
+        
+        if let result = result {
+            return result
+        }
+        return try T(from: superDecoder(forKey: key))
     }
     
     func nestedContainer<NestedKey>(keyedBy type: NestedKey.Type, forKey key: K) throws -> KeyedDecodingContainer<NestedKey> where NestedKey : CodingKey {

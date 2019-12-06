@@ -15,8 +15,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let list = try! Property.decode(Test.self)
-        _ = list.map{print($0)}
+        do {
+            let list = try Test.decodeProperties()
+            _ = list.map{ print($0) }
+        }catch {
+            print(error)
+        }
+        
+        
+        
+        
     }
 }
 
