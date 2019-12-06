@@ -12,9 +12,9 @@
 		426DAB7A9F1700AAE5C92B04508B9BB3 /* Pods-PropertyDecoder_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FDEA32E35BDB491291ED3994538B767 /* Pods-PropertyDecoder_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5563B33B0B565EDC709CACF3B9832236 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		64BBF29FFADE683DEADC4D91E83AEEF3 /* PropertyDecoder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7992B61C8E0E770B8F393214ACA149 /* PropertyDecoder-dummy.m */; };
-		781F4AD1239A3663000AF1A8 /* AnyDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781F4ACE239A3663000AF1A8 /* AnyDecodable.swift */; };
-		781F4AD2239A3663000AF1A8 /* _Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781F4ACF239A3663000AF1A8 /* _Decoder.swift */; };
-		781F4AD3239A3663000AF1A8 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781F4AD0239A3663000AF1A8 /* Property.swift */; };
+		781F4CFD239A41D7000AF1A8 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781F4CFA239A41D7000AF1A8 /* Property.swift */; };
+		781F4CFE239A41D7000AF1A8 /* _Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781F4CFB239A41D7000AF1A8 /* _Decoder.swift */; };
+		781F4CFF239A41D7000AF1A8 /* AnyDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781F4CFC239A41D7000AF1A8 /* AnyDecodable.swift */; };
 		96B42A8E02DB6433236190FA45D6A837 /* Pods-PropertyDecoder_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B05B4A0DD6F9464E2281BAEE46ACE /* Pods-PropertyDecoder_Tests-dummy.m */; };
 		C8C382B7E7EA3D8F968EE0CF09D62380 /* PropertyDecoder-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD884CC2A6A4063B31F4FA0F5D4CA70 /* PropertyDecoder-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E7AC64A991C1FA50D71ABDCEDA9DF2A4 /* Pods-PropertyDecoder_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F5D39448922F9B64DD440BB7AA110BC1 /* Pods-PropertyDecoder_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,9 +54,9 @@
 		667B05B4A0DD6F9464E2281BAEE46ACE /* Pods-PropertyDecoder_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PropertyDecoder_Tests-dummy.m"; sourceTree = "<group>"; };
 		6EFCCF3A208290E0C803D18A232AF195 /* Pods-PropertyDecoder_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PropertyDecoder_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		725C215877CB5A3808BED8223D6A32D5 /* Pods-PropertyDecoder_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PropertyDecoder_Example-frameworks.sh"; sourceTree = "<group>"; };
-		781F4ACE239A3663000AF1A8 /* AnyDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyDecodable.swift; sourceTree = "<group>"; };
-		781F4ACF239A3663000AF1A8 /* _Decoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Decoder.swift; sourceTree = "<group>"; };
-		781F4AD0239A3663000AF1A8 /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		781F4CFA239A41D7000AF1A8 /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Property.swift; path = Source/PropertyDecoder/Property.swift; sourceTree = "<group>"; };
+		781F4CFB239A41D7000AF1A8 /* _Decoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _Decoder.swift; path = Source/PropertyDecoder/_Decoder.swift; sourceTree = "<group>"; };
+		781F4CFC239A41D7000AF1A8 /* AnyDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnyDecodable.swift; path = Source/PropertyDecoder/AnyDecodable.swift; sourceTree = "<group>"; };
 		840894D25F724DE00D6FA8081EE92A74 /* Pods-PropertyDecoder_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PropertyDecoder_Example-Info.plist"; sourceTree = "<group>"; };
 		85D8F7E9F11C58438309861C18727322 /* Pods-PropertyDecoder_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PropertyDecoder_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8F530945F3263DA5668E16424E059002 /* Pods-PropertyDecoder_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PropertyDecoder_Tests.modulemap"; sourceTree = "<group>"; };
@@ -217,9 +217,9 @@
 		EAE1A6DAD18EB194632654F2B6C7B763 /* PropertyDecoder */ = {
 			isa = PBXGroup;
 			children = (
-				781F4ACF239A3663000AF1A8 /* _Decoder.swift */,
-				781F4ACE239A3663000AF1A8 /* AnyDecodable.swift */,
-				781F4AD0239A3663000AF1A8 /* Property.swift */,
+				781F4CFB239A41D7000AF1A8 /* _Decoder.swift */,
+				781F4CFC239A41D7000AF1A8 /* AnyDecodable.swift */,
+				781F4CFA239A41D7000AF1A8 /* Property.swift */,
 				2B6C215C3B77D6CFC21BCF2ECF2774B1 /* Pod */,
 				7900F64B4B53C69EA46675B36057743C /* Support Files */,
 			);
@@ -375,10 +375,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				781F4AD3239A3663000AF1A8 /* Property.swift in Sources */,
-				781F4AD1239A3663000AF1A8 /* AnyDecodable.swift in Sources */,
+				781F4CFF239A41D7000AF1A8 /* AnyDecodable.swift in Sources */,
+				781F4CFD239A41D7000AF1A8 /* Property.swift in Sources */,
 				64BBF29FFADE683DEADC4D91E83AEEF3 /* PropertyDecoder-dummy.m in Sources */,
-				781F4AD2239A3663000AF1A8 /* _Decoder.swift in Sources */,
+				781F4CFE239A41D7000AF1A8 /* _Decoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
