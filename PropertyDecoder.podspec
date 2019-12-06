@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.name             = 'PropertyDecoder'
   s.version          = '0.1.0'
   s.summary          = 'A short description of PropertyDecoder.'
-  s.swift_version    = '5.0
+  s.swift_version    = '5.0'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -31,7 +31,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'PropertyDecoder/Source/**/*'
+  s.source_files = 'Source/PropertyDecoder/**/*'
 
   # s.resource_bundles = {
   #   'PropertyDecoder' => ['PropertyDecoder/Assets/*.png']
