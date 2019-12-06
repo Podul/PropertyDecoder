@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'PropertyDecoder_Example' do
+  pod 'PropertyDecoder', :path => '../'
+
+  target 'PropertyDecoder_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
