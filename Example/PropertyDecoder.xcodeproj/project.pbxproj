@@ -14,6 +14,9 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		786F39CB239C9292000925E5 /* TestCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786F39CA239C9292000925E5 /* TestCodable.swift */; };
+		786F3C0F239C92D3000925E5 /* Exports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786F3C0E239C92D3000925E5 /* Exports.swift */; };
+		786F3C11239CB413000925E5 /* TestCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786F3C10239CB413000925E5 /* TestCustom.swift */; };
 		A6074074295B43CC0D69BFE8 /* Pods_PropertyDecoder_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1240AB7F7E226DF921BA27E5 /* Pods_PropertyDecoder_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,9 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		669E0FDA130D67C6C2637F5F /* Pods-PropertyDecoder_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PropertyDecoder_Tests.debug.xcconfig"; path = "Target Support Files/Pods-PropertyDecoder_Tests/Pods-PropertyDecoder_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		786F39CA239C9292000925E5 /* TestCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCodable.swift; sourceTree = "<group>"; };
+		786F3C0E239C92D3000925E5 /* Exports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exports.swift; sourceTree = "<group>"; };
+		786F3C10239CB413000925E5 /* TestCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCustom.swift; sourceTree = "<group>"; };
 		85D9947CB0CAC5DBEB056EDB /* Pods-PropertyDecoder_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PropertyDecoder_Example.debug.xcconfig"; path = "Target Support Files/Pods-PropertyDecoder_Example/Pods-PropertyDecoder_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8899C0888583C863DEC81DDB /* Pods-PropertyDecoder_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PropertyDecoder_Tests.release.xcconfig"; path = "Target Support Files/Pods-PropertyDecoder_Tests/Pods-PropertyDecoder_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		95FF5E9933B083E8E1257E85 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -124,7 +130,10 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				786F3C0E239C92D3000925E5 /* Exports.swift */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				786F39CA239C9292000925E5 /* TestCodable.swift */,
+				786F3C10239CB413000925E5 /* TestCustom.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -340,7 +349,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				786F39CB239C9292000925E5 /* TestCodable.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				786F3C11239CB413000925E5 /* TestCustom.swift in Sources */,
+				786F3C0F239C92D3000925E5 /* Exports.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

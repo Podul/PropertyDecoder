@@ -70,11 +70,11 @@ fileprivate struct _UnkeyedDecodingContainer: UnkeyedDecodingContainer {
     }
     
     mutating func decode<T>(_ type: T.Type) throws -> T where T : Decodable {
-        isAtEnd = true
-        guard let result = try type._defaultValue() as? T else {
-            throw _DecoderError(message: "\(type) not as Decodable")
+        if let result = try? type._defaultValue(), let resultT = result as? T {
+            isAtEnd = true
+            return resultT
         }
-        return result
+        return try T(from: superDecoder())
     }
     
     mutating func nestedContainer<NestedKey>(keyedBy type: NestedKey.Type) throws -> KeyedDecodingContainer<NestedKey> where NestedKey : CodingKey {
@@ -108,12 +108,8 @@ fileprivate struct _KeyedDecodingContainer<K>: KeyedDecodingContainerProtocol wh
     func decodeNil(forKey key: K) throws -> Bool { false }
  
     func decode<T>(_ type: T.Type, forKey key: K) throws -> T where T : Decodable {
-        guard let result = try? type._defaultValue() as? T else {
-            return try T(from: superDecoder(forKey: key))
-        }
-        
-        if let result = result {
-            return result
+        if let result = try? type._defaultValue(), let resultT = result as? T {
+            return resultT
         }
         return try T(from: superDecoder(forKey: key))
     }
@@ -140,14 +136,10 @@ fileprivate struct _KeyedDecodingContainer<K>: KeyedDecodingContainerProtocol wh
 // MARK: - extension Decodable
 fileprivate extension Decodable {
     static func _defaultValue() throws -> Any {
-        if let asable = Self.self as? AnyDecodable.Type {
-            return asable.defaultValue()
-        }
-        
         guard let asable = Self.self as? _AnyDecodable.Type else {
             throw _DecoderError(message: "not support type \(Self.self)")
         }
-        return asable.defaultValue()
+        return asable.anyValue()
     }
 }
 
