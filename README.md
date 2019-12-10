@@ -38,15 +38,6 @@ do {
     print(error)
   }
 ```
-or
-``` Swift
-do {
-    let list = try Test.decodeProperties()
-    _ = list.map{ print($0) }
-  }catch {
-    print(error)
-  }
-```
 输出
 ```
 {label: a, type: String}
@@ -75,7 +66,7 @@ pod 'PropertyDecoder'
 ### Swift Package Manager
 ``` Swift
 dependencies: [
-    .package(url: "https://github.com/podul/PropertyDecoder", from: "0.1.0")
+    .package(url: "https://github.com/podul/PropertyDecoder", from: "0.1.1")
 ]
 ```
 ## Author
