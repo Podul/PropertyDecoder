@@ -8,13 +8,10 @@
 import Foundation
 /// ```
 /// _AnyDecodable now supports
-/// Bool, String, Data, Array, Dictionary, Date
-/// Double, Float,
+/// Bool, String, Data, Array, Dictionary, Date, URL
+/// Double, Float
 /// Int, Int8, Int16, Int32, Int64, UInt, UInt8, UInt16, UInt32, UInt64
 /// ```
-
-
-// MARK: - 对内
 protocol _AnyDecodable where Self: Property.Decodable {
     static func anyValue() -> Self
 }
@@ -23,19 +20,15 @@ protocol _AnyDecodable where Self: Property.Decodable {
 extension Int: _AnyDecodable {
     static func anyValue() -> Self { Self(0) }
 }
-
 extension Int8: _AnyDecodable {
     static func anyValue() -> Self { Self(0) }
 }
-
 extension Int16: _AnyDecodable {
     static func anyValue() -> Self { Self(0) }
 }
-
 extension Int32: _AnyDecodable {
     static func anyValue() -> Self { Self(0) }
 }
-
 extension Int64: _AnyDecodable {
     static func anyValue() -> Self { Self(0) }
 }
@@ -55,6 +48,7 @@ extension UInt32: _AnyDecodable {
 extension UInt64: _AnyDecodable {
     static func anyValue() -> Self { Self(0) }
 }
+
 extension Float: _AnyDecodable {
     static func anyValue() -> Self { Self(0) }
 }
@@ -86,4 +80,8 @@ extension Dictionary: _AnyDecodable where Key: Decodable, Value: Decodable {
 
 extension Date: _AnyDecodable {
     static func anyValue() -> Self { Date() }
+}
+
+extension URL: _AnyDecodable {
+    static func anyValue() -> URL { URL(string: "https://podul.icu")! }
 }
