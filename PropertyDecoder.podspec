@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PropertyDecoder'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of PropertyDecoder.'
+  s.version          = '0.1.1'
+  s.summary          = '获取支持 Decodable 协议的属性列表'
   s.swift_version    = '5.0'
 
 # This description is used to generate tags and improve search results.
