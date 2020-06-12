@@ -5,12 +5,11 @@ import PackageDescription
 let package = Package(
     name: "PropertyDecoder",
     products: [
-        .library(
-            name: "PropertyDecoder",
-            targets: ["PropertyDecoder"])
+        .library(name: "PropertyDecoder", targets: ["PropertyDecoder"])
     ],
     targets: [
-        .target(name: "PropertyDecoder")
+        .target(name: "PropertyDecoder"),
+        .testTarget(name: "PropertyDecoderTests", dependencies: ["PropertyDecoder"])
     ],
     swiftLanguageVersions: [.v5]
 )

@@ -42,6 +42,7 @@ fileprivate struct _SingleValueDecodingContainer: SingleValueDecodingContainer {
     func decodeNil() -> Bool { true }
     
     func decode<T>(_ type: T.Type) throws -> T where T : Decodable {
+        
         guard let result = try type._anyValue() as? T else {
             throw _DecoderError(message: "\(type) not as Decodable")
         }
@@ -132,10 +133,12 @@ fileprivate struct _KeyedDecodingContainer<K>: KeyedDecodingContainerProtocol wh
     
 }
 
-
 // MARK: - extension Decodable
 fileprivate extension Decodable {
     static func _anyValue() throws -> Any {
+        if let asable = Self.self as? AnyDecodable.Type {
+            return asable.anyValue()
+        }
         guard let asable = Self.self as? _AnyDecodable.Type else {
             throw _DecoderError(message: "not support type \(Self.self)")
         }

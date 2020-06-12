@@ -7,6 +7,20 @@
 
 import Foundation
 
+
+public protocol EnumCodable: AnyDecodable, Encodable {}
+
+//extension EnumCodable {
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.singleValueContainer()
+//        guard let value = Self.init(rawValue:try container.decode(RawValue.self)) else {
+//            throw NSError(domain: "me.podul.EnumCodable", code: -1)
+//        }
+//        self = value
+//    }
+//}
+
+
 public enum Property {
     public typealias Decodable = Swift.Decodable
     

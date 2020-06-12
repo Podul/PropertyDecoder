@@ -12,50 +12,42 @@ import Foundation
 /// Double, Float
 /// Int, Int8, Int16, Int32, Int64, UInt, UInt8, UInt16, UInt32, UInt64
 /// ```
-protocol _AnyDecodable where Self: Property.Decodable {
+
+public protocol AnyDecodable: Property.Decodable {
+    static func anyValue() -> Self
+}
+
+protocol _AnyDecodable: Property.Decodable {
     static func anyValue() -> Self
 }
 
 // MARK: - Number Value
-extension Int: _AnyDecodable {
-    static func anyValue() -> Self { Self(0) }
-}
-extension Int8: _AnyDecodable {
-    static func anyValue() -> Self { Self(0) }
-}
-extension Int16: _AnyDecodable {
-    static func anyValue() -> Self { Self(0) }
-}
-extension Int32: _AnyDecodable {
-    static func anyValue() -> Self { Self(0) }
-}
-extension Int64: _AnyDecodable {
-    static func anyValue() -> Self { Self(0) }
+protocol _NumberDecodable: _AnyDecodable {}
+protocol _IntDecodable: _NumberDecodable {}
+protocol _FloatDecodable: _NumberDecodable {}
+
+extension _IntDecodable where Self: ExpressibleByIntegerLiteral {
+    static func anyValue() -> Self { 0 }
 }
 
-extension UInt: _AnyDecodable {
-    static func anyValue() -> Self { Self(0) }
-}
-extension UInt8: _AnyDecodable {
-    static func anyValue() -> Self { Self(0) }
-}
-extension UInt16: _AnyDecodable {
-    static func anyValue() -> Self { Self(0) }
-}
-extension UInt32: _AnyDecodable {
-    static func anyValue() -> Self { Self(0) }
-}
-extension UInt64: _AnyDecodable {
-    static func anyValue() -> Self { Self(0) }
+extension _FloatDecodable where Self: ExpressibleByFloatLiteral {
+    static func anyValue() -> Self { 0.0 }
 }
 
-extension Float: _AnyDecodable {
-    static func anyValue() -> Self { Self(0) }
-}
-extension Double: _AnyDecodable {
-    static func anyValue() -> Self { Self(0) }
-}
+extension Int: _IntDecodable {}
+extension Int8: _IntDecodable {}
+extension Int16: _IntDecodable {}
+extension Int32: _IntDecodable {}
+extension Int64: _IntDecodable {}
+extension UInt: _IntDecodable {}
+extension UInt8: _IntDecodable {}
+extension UInt16: _IntDecodable {}
+extension UInt32: _IntDecodable {}
+extension UInt64: _IntDecodable {}
 
+extension Float: _FloatDecodable {}
+//extension Float80: _FloatDecodable {}
+extension Double: _FloatDecodable {}
 
 // MARK: - Other Value
 extension String: _AnyDecodable {
@@ -83,5 +75,5 @@ extension Date: _AnyDecodable {
 }
 
 extension URL: _AnyDecodable {
-    static func anyValue() -> URL { URL(string: "https://podul.icu")! }
+    static func anyValue() -> URL { URL(string: "https://podul.me")! }
 }
